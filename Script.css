@@ -1,79 +1,419 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #050a14;
-    color: white;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
 }
 
-nav {
-    background: #000;
-    padding: 15px 5%;
-    text-align: center;
-    border-bottom: 2px solid #0056b3;
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: white;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+header p {
+  font-size: 1rem;
+  opacity: 0.85;
 }
 
-.logo {
-    color: #00aaff;
-    font-weight: bold;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
+/* ── Navigation Bar ── */
+.nav-steps {
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  background: #1e3a5f;
+  padding: 0 1rem;
+  scrollbar-width: none;
+}
+.nav-steps::-webkit-scrollbar {
+  display: none;
+}
+.nav-btn {
+  flex: 0 0 auto;
+  padding: 0.9rem 1.2rem;
+  color: #90cdf4;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+.nav-btn.active {
+  color: white;
+  border-bottom: 3px solid #63b3ed;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.hero {
-    height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* ── Container ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
 }
 
-.brand {
-    color: #00aaff;
+/* ── Step Sections ── */
+.step-section {
+  display: none;
+}
+.step-section.active {
+  display: block;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
-
-.btn-main {
-    display: inline-block;
-    padding: 10px 25px;
-    background: #0056b3;
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    border-radius: 5px;
+/* ── Step Header ── */
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 3px solid #2b6cb0;
+  margin-bottom: 0;
+}
+.step-badge {
+  background: #2b6cb0;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.step-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a365d;
+}
+.step-subtitle {
+  font-size: 0.88rem;
+  color: #4a5568;
+  margin-top: 2px;
 }
 
-/* Wahi Blue Dark wala Footer jo aapne manga */
-.blue-dark-footer {
-    background-color: #001a33; /* Dark Blue */
-    color: #80bfff;
-    padding: 40px 5%;
-    text-align: center;
-    border-top: 3px solid #0056b3;
+/* ── Card ── */
+.card {
+  background: white;
+  border-radius: 0 0 12px 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-top: none;
 }
 
-.social-icons i {
-    font-size: 1.5rem;
-    margin: 15px;
-    cursor: pointer;
-    transition: 0.3s;
+/* ── Info Grid & Box ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.info-box {
+  background: #ebf8ff;
+  border-left: 4px solid #2b6cb0;
+  padding: 0.9rem 1rem;
+  border-radius: 0 8px 8px 0;
+}
+.info-box h4 {
+  font-size: 0.8rem;
+  color: #2c5282;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+.info-box p {
+  font-size: 0.92rem;
+  color: #1a365d;
+  font-weight: 500;
 }
 
-.social-icons i:hover {
-    color: white;
+/* ── Section Title ── */
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 1.2rem 0 0.7rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #bee3f8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: #2b6cb0;
+  border-radius: 2px;
 }
 
-.copyright {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: #4d94ff;
+/* ── Stream List ── */
+.stream-list {
+  list-style: none;
+}
+.stream-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f7fafc;
+  font-size: 0.93rem;
+}
+.stream-list li::before {
+  content: '▶';
+  color: #2b6cb0;
+  font-size: 0.65rem;
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
+/* ── Govt Card ── */
+.govt-card {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin: 0.7rem 0;
+}
+.govt-card h4 {
+  color: #22543d;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.govt-card h4::before {
+  content: '★';
+  color: #38a169;
+  font-size: 0.85rem;
+}
+.govt-card ul {
+  list-style: none;
+  padding: 0;
+}
+.govt-card ul li {
+  font-size: 0.88rem;
+  color: #276749;
+  padding: 0.25rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.govt-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #38a169;
+}
+
+/* ── Highlight Box ── */
+.highlight-box {
+  background: #fffbeb;
+  border: 1px solid #f6e05e;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #744210;
+}
+.highlight-box strong {
+  color: #744210;
+}
+
+/* ── Tags ── */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin: 0.2rem;
+  background: #ebf8ff;
+  color: #2c5282;
+  border: 1px solid #bee3f8;
+}
+.tag.green {
+  background: #f0fff4;
+  color: #22543d;
+  border-color: #9ae6b4;
+}
+.tag.orange {
+  background: #fffaf0;
+  color: #7b341e;
+  border-color: #fbd38d;
+}
+
+/* ── Two Column Layout ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── Exam Table ── */
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.7rem 0;
+}
+.exam-table th {
+  background: #2b6cb0;
+  color: white;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.exam-table td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.exam-table tr:nth-child(even) td {
+  background: #f7fafc;
+}
+
+/* ── Stream Cards (Step 1) ── */
+.stream-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+.stream-card {
+  border-radius: 10px;
+  padding: 1rem;
+}
+.stream-card.science {
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+}
+.stream-card.commerce {
+  background: #f0fff4;
+  border: 1px solid #9ae6b4;
+}
+.stream-card.arts {
+  background: #fffaf0;
+  border: 1px solid #fbd38d;
+}
+.stream-card .stream-name {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.stream-card.science .stream-name { color: #1a365d; }
+.stream-card.commerce .stream-name { color: #22543d; }
+.stream-card.arts .stream-name { color: #744210; }
+.stream-card .stream-desc {
+  font-size: 0.85rem;
+  color: #2d3748;
+}
+.stream-card .stream-hint {
+  font-size: 0.82rem;
+  color: #4a5568;
+  margin-top: 0.5rem;
+}
+
+/* ── Graduation Course Cards ── */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin: 0.5rem 0 1rem;
+}
+.course-card {
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+.course-card.blue   { background: #ebf8ff; border: 1px solid #bee3f8; }
+.course-card.green  { background: #f0fff4; border: 1px solid #9ae6b4; }
+.course-card.purple { background: #faf5ff; border: 1px solid #d6bcfa; }
+.course-card.orange { background: #fffaf0; border: 1px solid #fbd38d; }
+.course-card.red    { background: #fff5f5; border: 1px solid #feb2b2; }
+.course-card .course-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.course-card.blue .course-name   { color: #1a365d; }
+.course-card.green .course-name  { color: #22543d; }
+.course-card.purple .course-name { color: #44337a; }
+.course-card.orange .course-name { color: #744210; }
+.course-card.red .course-name    { color: #742a2a; }
+.course-card .course-meta {
+  font-size: 0.8rem;
+  color: #4a5568;
+  margin-top: 0.3rem;
+}
+
+/* ── Job Level Tags (Step 5) ── */
+.job-level-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.6rem 0;
+}
+.job-level-row span.desc {
+  font-size: 0.88rem;
+  color: #2d3748;
+}
+
+/* ── Website Cards (Step 5) ── */
+.website-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+.website-card {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 0.85rem;
+}
+.website-card .site-name {
+  font-weight: 700;
+  color: #1a365d;
+}
+.website-card .site-url {
+  color: #4a5568;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #1a365d;
+  color: #90cdf4;
+  font-size: 0.85rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .nav-btn {
+    font-size: 0.75rem;
+    padding: 0.8rem 0.9rem;
+  }
+}
