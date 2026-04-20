@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #050a14;
+    color: white;
+}
+
+nav {
+    background: #000;
+    padding: 15px 5%;
+    text-align: center;
+    border-bottom: 2px solid #0056b3;
+}
+
+.logo {
+    color: #00aaff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.brand {
+    color: #00aaff;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+.btn-main {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Wahi Blue Dark wala Footer jo aapne manga */
+.blue-dark-footer {
+    background-color: #001a33; /* Dark Blue */
+    color: #80bfff;
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 3px solid #0056b3;
+}
+
+.social-icons i {
+    font-size: 1.5rem;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: white;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #4d94ff;
+}
+
