@@ -85,6 +85,6 @@ app.listen(3000, () => {
 
 
 
+MONGO_URI=mongodb://dreamhub:Alok2007@cluster0-shard-00-00.t4hpwn.mongodb.net:27017,cluster0-shard-00-01.t4hpwn.mongodb.net:27017,cluster0-shard-00-02.t4hpwn.mongodb.net:27017/?ssl=true&replicaSet=atlas-xxxxx-shard-0&authSource=admin&retryWrites=true&w=majority
 
-MONGO_URI=mongodb+srv://dreamhub:Alok2007@cluster0.t4hpwn.mongodb.net/?retryWrites=true&w=majority
 PORT=3000
