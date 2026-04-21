@@ -1,38 +1,82 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
+
+// Middleware
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27017/dreamhub")
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
+/* ================================
+   🔗 MongoDB Connection
+================================ */
+mongoose.connect("mongodb+srv://ok21815_db_user:Alok2007@cluster0.t4hpwn6.mongodb.net/dreamhub")
+.then(() => console.log("MongoDB Connected ✅"))
+.catch(err => console.log(err));
 
-const User = mongoose.model("User", {
-  email: String,
+/* ================================
+   👤 User Schema
+================================ */
+const userSchema = new mongoose.Schema({
+  username: String,
   password: String
 });
 
+const User = mongoose.model("User", userSchema);
+
+/* ================================
+   📝 Register API
+================================ */
 app.post("/register", async (req, res) => {
-  const hash = await bcrypt.hash(req.body.password, 10);
-  const user = new User({ email: req.body.email, password: hash });
-  await user.save();
-  res.json({ msg: "Registered" });
+  try {
+    const { username, password } = req.body;
+
+    // check if user exists
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.json({ msg: "User already exists ❌" });
+    }
+
+    // save new user
+    const newUser = new User({ username, password });
+    await newUser.save();
+
+    res.json({ msg: "Registered Successfully ✅" });
+  } catch (err) {
+    res.json({ msg: "Error ❌", error: err });
+  }
 });
 
+/* ================================
+   🔐 Login API
+================================ */
 app.post("/login", async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.json({ msg: "User not found" });
+  try {
+    const { username, password } = req.body;
 
-  const ok = await bcrypt.compare(req.body.password, user.password);
-  if (!ok) return res.json({ msg: "Wrong password" });
+    const user = await User.findOne({ username, password });
 
-  const token = jwt.sign({ id: user._id }, "secret123");
-  res.json({ token });
+    if (user) {
+      res.json({ msg: "Login Success ✅" });
+    } else {
+      res.json({ msg: "Invalid Credentials ❌" });
+    }
+  } catch (err) {
+    res.json({ msg: "Error ❌", error: err });
+  }
 });
 
-app.listen(5000, () => console.log("Server running"));
+/* ================================
+   🌐 Test Route
+================================ */
+app.get("/", (req, res) => {
+  res.send("Server chal raha hai 🚀");
+});
+
+/* ================================
+   🚀 Start Server
+================================ */
+app.listen(3000, () => {
+  console.log("Server running on port 3000 🚀");
+});
